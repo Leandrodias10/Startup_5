@@ -1,0 +1,112 @@
+[
+    {
+      "id": null,
+      "title": "A Melhor Mãe do Mundo",
+      "synopsis": "Uma catadora de material reciclável em São Paulo que sonha em dar um futuro melhor para seus filhos, enfrentando as dificuldades da vida urbana.",
+      "category": "Drama",
+      "genre": "Nacional",
+      "staff": "Direção: Anna Muylaert. Elenco: Shirley Cruz, Seu Jorge, Rihanna Barbosa, Benin Ayo.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2024-11-14",
+      "imageURL": "A-melhor-mãe-do-mundo.jpg"
+    },
+    {
+      "id": null,
+      "title": "A Casa Mágica da Gabby: O Filme",
+      "synopsis": "Gabby e seu amigo Pandy Gato encolhem e embarcam em uma aventura musical na Casa Mágica para salvar a casa e seus gatos de uma vilã.",
+      "category": "Animação",
+      "genre": "Infantil / Comédia",
+      "staff": "Direção: Ryan Crego. Elenco: Laila Lockhart Kraner.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2025-09-26",
+      "imageURL": "A-casa-magia-da-Gabby.jpg"
+    },
+    {
+      "id": null,
+      "title": "Chainsaw Man - O Filme: Arco da Reze",
+      "synopsis": "Continuação do anime, focado no Arco da Reze, onde Denji conhece uma garota misteriosa que tem seus próprios segredos sombrios.",
+      "category": "Animação",
+      "genre": "Ação / Fantasia Sombria",
+      "staff": "Estúdio: MAPPA. Baseado no mangá de Tatsuki Fujimoto.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2024-10-10",
+      "imageURL": "Chainsaw-Man.jpg"
+    },
+    {
+      "id": null,
+      "title": "A Noiva Cadáver",
+      "synopsis": "Um jovem noivo tímido acidentalmente se casa com uma misteriosa noiva cadáver enquanto pratica seus votos na floresta.",
+      "category": "Animação",
+      "genre": "Fantasia / Musical",
+      "staff": "Direção: Tim Burton, Mike Johnson. Vozes (originais): Johnny Depp, Helena Bonham Carter.",
+      "whereToWatch": "Max, Amazon Prime Video",
+      "releaseDate": "2005-10-21",
+      "imageURL": "A-Noiva-Cadaver.jpg"
+    },
+    {
+      "id": null,
+      "title": "Enterre Seus Mortos",
+      "synopsis": "Um homem precisa voltar à sua cidade natal para enterrar o irmão, mas acaba descobrindo segredos sombrios sobre sua família e o passado.",
+      "category": "Suspense",
+      "genre": "Drama / Nacional",
+      "staff": "Direção: Marco Dutra. Elenco: Selton Mello, Marjorie Estiano. Baseado no livro de Ana Paula Maia.",
+      "whereToWatch": "Globoplay / Cinemas",
+      "releaseDate": "2024-08-15",
+      "imageURL": "Enterre-seus-mortos.jpg"
+    },
+    {
+      "id": null,
+      "title": "Salverosa",
+      "synopsis": "Um drama sobre a relação complexa entre uma mãe e sua filha, uma influenciadora digital mirim, explorando os limites da exposição online.",
+      "category": "Drama",
+      "genre": "Nacional",
+      "staff": "Direção: Susanna Lira. Elenco: Klara Castanho, Karine Teles.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2024-11-21",
+      "imageURL": "Salverosa.jpg"
+    },
+    {
+      "id": null,
+      "title": "Invocação do Mal 4: O Último Ritual",
+      "synopsis": "Ed e Lorraine Warren investigam um novo caso aterrorizante, que é anunciado como o fim de suas jornadas e o último ritual.",
+      "category": "Terror",
+      "genre": "Sobrenatural",
+      "staff": "Elenco: Patrick Wilson, Vera Farmiga.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2025-09-04",
+      "imageURL": "Invocação-do-Mal-4.jpg"
+    },
+    {
+      "id": null,
+      "title": "Frankie e os Monstros",
+      "synopsis": "Um pequeno monstro 'quase-humano' chamado Frankie vive em um castelo com outros monstros, mas sua vida muda quando uma garota 'normal' aparece.",
+      "category": "Animação",
+      "genre": "Comédia / Infantil",
+      "staff": "Elenco (vozes originais): Asa Butterfield, Stephen Fry.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2024-10-31",
+      "imageURL": "Frankie-e-os-monstros.jpg"
+    },
+    {
+      "id": null,
+      "title": "De Volta para o Futuro",
+      "synopsis": "O adolescente Marty McFly é acidentalmente enviado 30 anos no passado em um carro do tempo DeLorean inventado por seu amigo, o cientista Doc Brown.",
+      "category": "Ficção Científica",
+      "genre": "Comédia / Aventura",
+      "staff": "Direção: Robert Zemeckis. Elenco: Michael J. Fox, Christopher Lloyd.",
+      "whereToWatch": "Star+, Netflix, Amazon Prime Video",
+      "releaseDate": "1985-12-25",
+      "imageURL": "De-volta-para-o-futuro.jpg"
+    },
+    {
+      "id": null,
+      "title": "O Filme - Demon Slayer: Kimetsu no Yaiba - Castelo Infinito",
+      "synopsis": "Continuação da série, adaptando o arco final 'Castelo Infinito', onde os Caçadores de Demônios enfrentam as Luas Superiores e Muzan.",
+      "category": "Animação",
+      "genre": "Ação / Fantasia",
+      "staff": "Estúdio: Ufotable. Baseado no mangá de Koyoharu Gotouge.",
+      "whereToWatch": "Cinemas",
+      "releaseDate": "2025-09-11",
+      "imageURL": "Demon-Slayer.jpg"
+    }
+]

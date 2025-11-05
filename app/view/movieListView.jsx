@@ -32,7 +32,7 @@ export default function MovieListView() {
         <Card style={styles.card}>
           <View style={styles.row}>
             <Image
-              source= {require('../../assets/images/capa_filme.jpg')}
+              source= {require('../../assets/images/' + item.imageUrl)}
               style={styles.image}
             />
             <Card.Content style={styles.content}>
