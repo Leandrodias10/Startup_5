@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
+import { FlatList, Image, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { Button, Card, Paragraph, Text, Title } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import MovieService from '../services/MovieService';
@@ -9,14 +9,34 @@ import MovieService from '../services/MovieService';
 export default function MovieListView() {
   const router = useRouter();
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchText, setSearchText] = useState('');
   
+
+  const filterMovies = (text) => {
+    const search = text.toLowerCase();
+    const filtered = movies.filter(movie => 
+      (movie.title?.toLowerCase() || '').includes(search) ||
+      (movie.genre?.some(g => g.toLowerCase().includes(search)) || false) ||
+      (movie.category?.some(c => c.toLowerCase().includes(search)) || false)
+    );
+    setFilteredMovies(filtered);
+  };
 
   async function load() {
     try {
       setLoading(true);
       const res = await MovieService.listar();
       setMovies(res);
+      // Aplica o filtro atual aos novos dados
+      const search = searchText.toLowerCase();
+      const filtered = res.filter(movie => 
+        (movie.title?.toLowerCase() || '').includes(search) ||
+        (movie.genre?.some(g => g.toLowerCase().includes(search)) || false) ||
+        (movie.category?.some(c => c.toLowerCase().includes(search)) || false)
+      );
+      setFilteredMovies(filtered);
     } catch (e) {
       Toast.show({ type: 'error', text1: 'Erro ao carregar filmes', text2: String(e.message) });
     } finally {
@@ -32,7 +52,7 @@ export default function MovieListView() {
         <Card style={styles.card}>
           <View style={styles.row}>
             <Image
-              source= {require('../../assets/images/' + item.imageUrl)}
+              source={item.imageURL.startsWith('http') ? { uri: item.imageURL } : { uri: item.imageURL.replace(/^\.\.\//, '') }}
               style={styles.image}
             />
             <Card.Content style={styles.content}>
@@ -54,8 +74,18 @@ export default function MovieListView() {
         <Button onPress={load} style={{ marginLeft: 8 }}>Atualizar</Button>
       </View>
 
+      <TextInput
+        style={styles.searchInput}
+        placeholder="Buscar por título, gênero ou categoria..."
+        value={searchText}
+        onChangeText={(text) => {
+          setSearchText(text);
+          filterMovies(text);
+        }}
+      />
+
       <FlatList
-        data={movies}
+        data={filteredMovies}
         keyExtractor={(i) => String(i.id)}
         renderItem={renderItem}
         refreshing={loading}
@@ -69,6 +99,13 @@ export default function MovieListView() {
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 12, backgroundColor: '#eaeaea' },
   header: { flexDirection: 'row', marginBottom: 12, gap: 8 },
+  searchInput: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 12,
+    elevation: 2,
+  },
   card: {
     marginBottom: 10,
     borderRadius: 12,

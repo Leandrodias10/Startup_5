@@ -12,8 +12,8 @@ constructor({
 id = null,
 title = '',
 synopsis = '',
-category = '',
-genre = '',
+category = [],
+genre = [],
 staff = '',
 whereToWatch = '',
 releaseDate = '', // YYYY-MM-DD

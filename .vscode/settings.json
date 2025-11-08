@@ -11,7 +11,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    ".vscode": true,
+    ".vscode": false,
     "constants": true,
     "hooks": true,
     "scripts": true,
@@ -23,7 +23,7 @@
     "eslint.config.js": true,
     "README.md": true,
     "tsconfig.json": true,
-    ".expo": true,
+    ".expo": false,
     "node_modules": true,
     "expo-env.d.ts": true
   }
