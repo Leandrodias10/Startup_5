@@ -18,6 +18,7 @@ staff = '',
 whereToWatch = '',
 releaseDate = '', // YYYY-MM-DD
 imageURL = '',
+watchLinks = {},  // Objeto para armazenar links (ex: { youtube: 'url', netflix: 'url' })
 } = {}) {
 this.id = normalizeId(id) ?? newId();
 this.title = title;
@@ -27,7 +28,8 @@ this.genre = genre;
 this.staff = staff;
 this.whereToWatch = whereToWatch;
 this.releaseDate = releaseDate;
-this.imageURL = imageURL
+this.imageURL = imageURL;
+this.watchLinks = watchLinks
 }
 
 

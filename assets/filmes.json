@@ -6,7 +6,11 @@
       "category": ["Drama"],
       "genre": ["Nacional"],
       "staff": "Direção: Anna Muylaert. Elenco: Shirley Cruz, Seu Jorge, Rihanna Barbosa, Benin Ayo.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2024-11-14",
       "imageURL": "https://image.tmdb.org/t/p/w185/dY6Dy8fbnbkVLWyhokOTPU2A3Z5.jpg"
     },
@@ -17,7 +21,11 @@
       "category": ["Animação"],
       "genre": ["Infantil", "Comédia"],
       "staff": "Direção: Ryan Crego. Elenco: Laila Lockhart Kraner.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2025-09-26",
       "imageURL": "https://image.tmdb.org/t/p/w185/t6LLguAmu6iZUN8pWhT7Q0IcaQ5.jpg"
     },
@@ -28,7 +36,11 @@
       "category": ["Animação"],
       "genre": ["Ação", "Fantasia Sombria"],
       "staff": "Estúdio: MAPPA. Baseado no mangá de Tatsuki Fujimoto.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2024-10-10",
       "imageURL": "https://image.tmdb.org/t/p/w185/xdzLBZjCVSEsic7m7nJc4jNJZVW.jpg"
     },
@@ -39,7 +51,11 @@
       "category": ["Animação"],
       "genre": ["Fantasia", "Musical"],
       "staff": "Direção: Tim Burton, Mike Johnson. Vozes (originais): Johnny Depp, Helena Bonham Carter.",
-      "whereToWatch": "Max, Amazon Prime Video",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2005-10-21",
       "imageURL": "https://image.tmdb.org/t/p/w185/isb2Qow76GpqYmsSyfdMfsYAjts.jpg"
     },
@@ -50,7 +66,11 @@
       "category": ["Suspense"],
       "genre": ["Drama", "Nacional"],
       "staff": "Direção: Marco Dutra. Elenco: Selton Mello, Marjorie Estiano. Baseado no livro de Ana Paula Maia.",
-      "whereToWatch": "Globoplay / Cinemas",
+      "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2024-08-15",
       "imageURL": "https://image.tmdb.org/t/p/w185/a0g5OGnEVp4ero6Z0a8iXVYpcqL.jpg"
     },
@@ -61,7 +81,11 @@
       "category": ["Drama"],
       "genre": ["Nacional"],
       "staff": "Direção: Susanna Lira. Elenco: Klara Castanho, Karine Teles.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2024-11-21",
       "imageURL": "https://image.tmdb.org/t/p/w185/nCivukZVNGjvj7VGwsPMFFHq0Zx.jpg"
     },
@@ -72,7 +96,11 @@
       "category": ["Terror"],
       "genre": ["Sobrenatural"],
       "staff": "Elenco: Patrick Wilson, Vera Farmiga.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2025-09-04",
       "imageURL": "https://image.tmdb.org/t/p/w185/7JzOmJ1fIU43I3gLHYsY8UzNzjG.jpg"
     },
@@ -83,7 +111,11 @@
       "category": ["Animação"],
       "genre": ["Comédia", "Infantil"],
       "staff": "Elenco (vozes originais): Asa Butterfield, Stephen Fry.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2024-10-31",
       "imageURL": "https://image.tmdb.org/t/p/w185/p0ZOIaQ8oLEGmQVrYcmvIOUuSqs.jpg"
     },
@@ -94,7 +126,11 @@
       "category": ["Ficção Científica"],
       "genre": ["Comédia", "Aventura"],
       "staff": "Direção: Robert Zemeckis. Elenco: Michael J. Fox, Christopher Lloyd.",
-      "whereToWatch": "Star+, Netflix, Amazon Prime Video",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "1985-12-25",
       "imageURL": "https://image.tmdb.org/t/p/w185/vN5B5WgYscRGcQpVhHl6p9DDTP0.jpg"
     },
@@ -105,7 +141,11 @@
       "category": ["Animação"],
       "genre": ["Ação", "Fantasia"],
       "staff": "Estúdio: Ufotable. Baseado no mangá de Koyoharu Gotouge.",
-      "whereToWatch": "Cinemas",
+        "watchLinks": {
+        "Netflix": "https://www.netflix.com/title/enterreseus",
+        "YouTube": "https://youtu.be/trailer-enterreseus",
+        "Prime Video": "https://www.primevideo.com/detail/enterreseus"
+      },
       "releaseDate": "2025-09-11",
       "imageURL": "https://image.tmdb.org/t/p/w185/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg"
     }
