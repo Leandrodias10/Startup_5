@@ -46,4 +46,14 @@ Pessoas que procuram filmes para assistir e desejam acessar informações rapida
 
 ## 📂 Estrutura de Pastas (padrão atual do projeto)
 
+Startup_5/
+├─ app/ # Telas e rotas
+├─ assets/ # Imagens, ícones e fontes
+├─ components/ # Componentes reutilizáveis
+├─ constants/ # Cores, estilos e variáveis globais
+├─ hooks/ # Hooks personalizados
+├─ scripts/ # Scripts auxiliares
+├─ package.json
+├─ README.md
+└─ tsconfig.json
 
