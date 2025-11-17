@@ -23,7 +23,6 @@ Pessoas que procuram filmes para assistir e desejam acessar informações rapida
 | Status | Funcionalidade |
 |--------|----------------|
 | ✔️ | Tela de Login / Autenticação de usuário |
-| ✔️ | Cadastro de filmes |
 | ✔️ | Exibição de informações completas do filme |
 | ✔️ | Indicação de plataformas onde o filme pode ser assistido |
 | ⏳ | Futuras avaliações e notas de usuários |
