@@ -80,9 +80,15 @@ Antes de tudo, instale:
 - Git
 
 ### 📥 Clonar o repositório
-
-```bash
 git clone https://github.com/Leandrodias10/Startup_5.git
+
+
+📦 Instalar dependências
+cd Startup_5
+npm install
+
+▶️ Iniciar o projeto
+npx expo start
 
 
 
