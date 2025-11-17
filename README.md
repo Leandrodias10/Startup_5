@@ -80,7 +80,6 @@ Antes de tudo, instale:
 - Git
 
 ### 📥 Clonar o repositório
-📦 Instalar dependências
 
 ```bash
 git clone https://github.com/Leandrodias10/Startup_5.git
