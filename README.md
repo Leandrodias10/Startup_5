@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# 🎬 Startup_5 — Catálogo de Filmes (React Native + Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+O **Startup_5** é um aplicativo mobile desenvolvido em **React Native com Expo**, criado para auxiliar usuários a encontrarem informações sobre filmes, incluindo sinopse, elenco, e onde assistir online. O objetivo é ajudar quem está em dúvida sobre qual filme escolher, oferecendo um catálogo intuitivo e informativo.
 
-## Get started
+---
 
-1. Install dependencies
+## 🎯 Objetivo do Projeto
+Fornecer uma plataforma prática para consulta de filmes, permitindo ao usuário visualizar detalhes e descobrir em quais plataformas de streaming o título está disponível.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 👥 Público-Alvo
+Pessoas que procuram filmes para assistir e desejam acessar informações rapidamente, como:
 
-   ```bash
-   npx expo start
-   ```
+- Título e sinopse
+- Detalhes gerais do filme
+- Serviços de streaming onde está disponível
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📱 Funcionalidades do App
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+| Status | Funcionalidade |
+|--------|----------------|
+| ✔️ | Tela de Login / Autenticação de usuário |
+| ✔️ | Cadastro de filmes |
+| ✔️ | Exibição de informações completas do filme |
+| ✔️ | Indicação de plataformas onde o filme pode ser assistido |
+| ⏳ | Futuras avaliações e notas de usuários |
+| ⏳ | Favoritos e lista personalizada |
+| ⏳ | Integração com API externa (TMDB, JustWatch etc.) |
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 🛠️ Tecnologias Utilizadas
 
-```bash
-npm run reset-project
-```
+| Tecnologia | Uso |
+|------------|-----|
+| React Native | Base do aplicativo mobile |
+| Expo | Ambiente de desenvolvimento |
+| TypeScript | Tipagem e maior segurança no código |
+| Expo Router / Navigation | Navegação entre telas |
+| AsyncStorage ou API futura | Controle de dados do usuário / filmes |
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 📂 Estrutura de Pastas (padrão atual do projeto)
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
