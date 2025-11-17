@@ -65,3 +65,25 @@ Startup_5/
 
 └─ tsconfig.json
 
+---
+
+
+---
+
+## 🚀 Como Executar o Projeto Localmente
+
+### 📌 Pré-requisitos
+Antes de tudo, instale:
+
+- Node.js LTS
+- Expo CLI
+- Git
+
+### 📥 Clonar o repositório
+📦 Instalar dependências
+
+```bash
+git clone https://github.com/Leandrodias10/Startup_5.git
+
+
+
