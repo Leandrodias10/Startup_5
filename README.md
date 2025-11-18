@@ -25,9 +25,9 @@ Pessoas que procuram filmes para assistir e desejam acessar informações rapida
 | ✔️ | Tela de Login / Autenticação de usuário |
 | ✔️ | Exibição de informações completas do filme |
 | ✔️ | Indicação de plataformas onde o filme pode ser assistido |
+| ✔️ | Favoritos e lista personalizada |
 | ⏳ | Futuras avaliações e notas de usuários |
-| ⏳ | Favoritos e lista personalizada |
-| ⏳ | Integração com API externa (TMDB, JustWatch etc.) |
+
 
 ---
 
