@@ -67,27 +67,6 @@ Startup_5/
 ---
 
 
----
-
-## 🚀 Como Executar o Projeto Localmente
-
-### 📌 Pré-requisitos
-Antes de tudo, instale:
-
-- Node.js LTS
-- Expo CLI
-- Git
-
-### 📥 Clonar o repositório
-git clone https://github.com/Leandrodias10/Startup_5.git
-
-
-📦 Instalar dependências
-cd Startup_5
-npm install
-
-▶️ Iniciar o projeto
-npx expo start
 
 
 
