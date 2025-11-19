@@ -1,7 +1,8 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Image, Linking, ScrollView, StyleSheet, View } from 'react-native';
-import { Button, Divider, Paragraph, Text, Title, useTheme } from 'react-native-paper';
+import { Button, Chip, Divider, Paragraph, Text, Title, useTheme } from 'react-native-paper';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function MovieDetailView() {
   const router = useRouter();
@@ -9,74 +10,254 @@ export default function MovieDetailView() {
   const insets = useSafeAreaInsets();
   const theme = useTheme();
   
-  // Parsing mais seguro do watchLinks
+  // Parsing seguro dos dados
   let watchLinks = {};
+  let category = [];
+  let genre = [];
+  
   try {
     watchLinks = params.watchLinks ? JSON.parse(params.watchLinks) : {};
   } catch (error) {
     console.error('Erro ao fazer parse de watchLinks:', error);
   }
 
+  try {
+    category = params.category ? JSON.parse(params.category) : [];
+  } catch (error) {
+    category = Array.isArray(params.category) ? params.category : [params.category];
+  }
+
+  try {
+    genre = params.genre ? JSON.parse(params.genre) : [];
+  } catch (error) {
+    genre = Array.isArray(params.genre) ? params.genre : [params.genre];
+  }
+
   const movie = {
     ...params,
-    watchLinks
+    watchLinks,
+    category,
+    genre,
+    voteAverage: parseFloat(params.voteAverage) || 0,
+    voteCount: parseInt(params.voteCount) || 0,
+    popularity: parseFloat(params.popularity) || 0,
+  };
+
+  const isTmdbMovie = String(movie.id).startsWith('tmdb_');
+
+  // Formata a data
+  const formatDate = (date) => {
+    if (!date) return 'Data não disponível';
+    try {
+      const d = new Date(date);
+      return d.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+    } catch {
+      return date;
+    }
+  };
+
+  // Formata a avaliação
+  const formatRating = (rating) => {
+    if (!rating || rating === 0) return null;
+    return rating.toFixed(1);
   };
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.colors.background }]}>
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={[styles.card, { backgroundColor: theme.colors.surface }]}>
-          <Image
-            source={{ uri: movie.imageURL }}
-            style={styles.image}
-          />
+        {/* Backdrop com gradiente */}
+        {movie.backdropURL && (
+          <View style={styles.backdropContainer}>
+            <Image
+              source={{ uri: movie.backdropURL }}
+              style={styles.backdrop}
+            />
+            <LinearGradient
+              colors={['transparent', theme.colors.background]}
+              style={styles.gradient}
+            />
+          </View>
+        )}
 
-          <Title style={[styles.title, { color: theme.colors.onSurface }]}>{movie.title}</Title>
-          <View style={styles.synopsisContainer}>
-            <Paragraph style={[styles.synopsis, { color: theme.colors.onSurfaceVariant }]}>{movie.synopsis}</Paragraph>
+        <View style={[styles.card, { backgroundColor: theme.colors.surface }]}>
+          {/* Header com poster e informações principais */}
+          <View style={styles.header}>
+            <Image
+              source={{ uri: movie.imageURL }}
+              style={styles.poster}
+            />
+            
+            <View style={styles.headerInfo}>
+              <View style={styles.titleRow}>
+                <Title style={[styles.title, { color: theme.colors.onSurface }]}>
+                  {movie.title}
+                </Title>
+                {isTmdbMovie && (
+                  <Chip 
+                    mode="flat" 
+                    compact
+                    icon="movie-open"
+                    style={styles.tmdbBadge}
+                    textStyle={styles.tmdbBadgeText}
+                  >
+                    TMDB
+                  </Chip>
+                )}
+              </View>
+
+              {/* Avaliação e ano */}
+              <View style={styles.metaRow}>
+                {movie.voteAverage > 0 && (
+                  <View style={[styles.ratingBox, { backgroundColor: theme.colors.primaryContainer }]}>
+                    <Text style={[styles.ratingText, { color: theme.colors.onPrimaryContainer }]}>
+                      ⭐ {formatRating(movie.voteAverage)}
+                    </Text>
+                    {movie.voteCount > 0 && (
+                      <Text style={[styles.voteCount, { color: theme.colors.onPrimaryContainer }]}>
+                        {movie.voteCount.toLocaleString('pt-BR')} votos
+                      </Text>
+                    )}
+                  </View>
+                )}
+                
+                {movie.releaseDate && (
+                  <Chip 
+                    mode="outlined" 
+                    compact
+                    icon="calendar"
+                    style={styles.yearChip}
+                  >
+                    {movie.releaseDate.split('-')[0]}
+                  </Chip>
+                )}
+              </View>
+
+              {/* Gêneros */}
+              {genre.length > 0 && (
+                <View style={styles.genreContainer}>
+                  {genre.map((g, index) => (
+                    <Chip 
+                      key={index}
+                      mode="outlined"
+                      compact
+                      style={styles.genreChip}
+                      textStyle={styles.genreChipText}
+                    >
+                      {g}
+                    </Chip>
+                  ))}
+                </View>
+              )}
+            </View>
           </View>
 
           <Divider style={[styles.divider, { backgroundColor: theme.colors.outline }]} />
 
-          <View style={styles.infoContainer}>
-            <View style={styles.infoRow}>
-              <Text style={[styles.bold, { color: theme.colors.onSurface }]}>📂 Categoria:</Text>
-              <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>{Array.isArray(movie.category) ? movie.category.join(', ') : movie.category}</Text>
-            </View>
-            <View style={styles.infoRow}>
-              <Text style={[styles.bold, { color: theme.colors.onSurface }]}>🎭 Gênero:</Text>
-              <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>{Array.isArray(movie.genre) ? movie.genre.join(', ') : movie.genre}</Text>
-            </View>
-            <View style={styles.infoRow}>
-              <Text style={[styles.bold, { color: theme.colors.onSurface }]}>🎬 Elenco:</Text>
-              <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>{movie.staff}</Text>
-            </View>
-            <View style={styles.infoRow}>
-              <Text style={[styles.bold, { color: theme.colors.onSurface }]}>📅 Lançamento:</Text>
-              <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>{movie.releaseDate}</Text>
-            </View>
+          {/* Sinopse */}
+          <View style={styles.section}>
+            <Text style={[styles.sectionTitle, { color: theme.colors.onSurface }]}>
+              📖 Sinopse
+            </Text>
+            <Paragraph style={[styles.synopsis, { color: theme.colors.onSurfaceVariant }]}>
+              {movie.synopsis}
+            </Paragraph>
           </View>
 
-          {Object.keys(movie.watchLinks || {}).length > 0 && (
-            <View style={styles.watchLinksContainer}>
-              <Text style={[styles.info, styles.bold, styles.watchLinksTitle, { color: theme.colors.onSurface }]}>📺 Onde assistir:</Text>
-              <View style={styles.watchLinksGrid}>
-                {Object.entries(movie.watchLinks).map(([platform, url]) => (
-                  <Button
-                    key={platform}
-                    mode="outlined"
-                    icon="play-circle"
-                    style={styles.watchLinkButton}
-                    textColor={theme.colors.primary}
-                    onPress={() => Linking.openURL(url)}
-                  >
-                    {platform}
-                  </Button>
-                ))}
-              </View>
-            </View>
-          )}
+          <Divider style={[styles.divider, { backgroundColor: theme.colors.outline }]} />
 
+          {/* Informações adicionais */}
+          <View style={styles.section}>
+            <Text style={[styles.sectionTitle, { color: theme.colors.onSurface }]}>
+              ℹ️ Informações
+            </Text>
+            
+            {movie.releaseDate && (
+              <View style={styles.infoRow}>
+                <Text style={[styles.infoLabel, { color: theme.colors.onSurface }]}>
+                  📅 Lançamento:
+                </Text>
+                <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>
+                  {formatDate(movie.releaseDate)}
+                </Text>
+              </View>
+            )}
+
+            {category.length > 0 && (
+              <View style={styles.infoRow}>
+                <Text style={[styles.infoLabel, { color: theme.colors.onSurface }]}>
+                  📂 Categorias:
+                </Text>
+                <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>
+                  {category.join(', ')}
+                </Text>
+              </View>
+            )}
+
+            {movie.staff && (
+              <View style={styles.infoRow}>
+                <Text style={[styles.infoLabel, { color: theme.colors.onSurface }]}>
+                  🎬 Equipe:
+                </Text>
+                <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>
+                  {movie.staff}
+                </Text>
+              </View>
+            )}
+
+            {movie.popularity > 0 && (
+              <View style={styles.infoRow}>
+                <Text style={[styles.infoLabel, { color: theme.colors.onSurface }]}>
+                  🔥 Popularidade:
+                </Text>
+                <Text style={[styles.infoText, { color: theme.colors.onSurfaceVariant }]}>
+                  {movie.popularity.toFixed(0)}
+                </Text>
+              </View>
+            )}
+          </View>
+
+          {/* Onde assistir */}
+          {(movie.whereToWatch || Object.keys(watchLinks).length > 0) && (
+            <>
+              <Divider style={[styles.divider, { backgroundColor: theme.colors.outline }]} />
+              <View style={styles.section}>
+                <Text style={[styles.sectionTitle, { color: theme.colors.onSurface }]}>
+                  📺 Onde Assistir
+                </Text>
+                
+                {movie.whereToWatch && (
+                  <Text style={[styles.providerText, { color: theme.colors.onSurfaceVariant }]}>
+                    {movie.whereToWatch}
+                  </Text>
+                )}
+
+                {Object.keys(watchLinks).length > 0 && (
+                  <View style={styles.watchLinksGrid}>
+                    {Object.entries(watchLinks).map(([platform, url]) => (
+                      <Button
+                        key={platform}
+                        mode="contained-tonal"
+                        icon="play-circle"
+                        style={styles.watchLinkButton}
+                        contentStyle={styles.watchLinkContent}
+                        onPress={() => {
+                          if (typeof url === 'string' && url.startsWith('http')) {
+                            Linking.openURL(url);
+                          }
+                        }}
+                      >
+                        {platform}
+                      </Button>
+                    ))}
+                  </View>
+                )}
+              </View>
+            </>
+          )}
         </View>
       </ScrollView>
 
@@ -109,11 +290,28 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    padding: 20,
-    paddingBottom: 80, // Espaço extra para a barra de navegação
+    paddingBottom: 80,
+  },
+  backdropContainer: {
+    width: '100%',
+    height: 250,
+    position: 'relative',
+  },
+  backdrop: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  gradient: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 100,
   },
   card: {
-    width: '100%',
+    margin: 16,
+    marginTop: movie => movie.backdropURL ? -50 : 16,
     borderRadius: 16,
     padding: 16,
     shadowColor: '#000',
@@ -122,72 +320,122 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 5,
   },
-  image: {
-    width: '100%',
-    height: 420,
-    borderRadius: 12,
+  header: {
+    flexDirection: 'row',
     marginBottom: 16,
-    resizeMode: 'cover',
+  },
+  poster: {
+    width: 120,
+    height: 180,
+    borderRadius: 12,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  headerInfo: {
+    flex: 1,
+    marginLeft: 16,
+    justifyContent: 'flex-start',
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    marginBottom: 8,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '700',
-    textAlign: 'left',
-    marginBottom: 10,
+    flex: 1,
+    lineHeight: 26,
   },
-  synopsisContainer: {
-    marginBottom: 16,
+  tmdbBadge: {
+    height: 24,
+  },
+  tmdbBadgeText: {
+    fontSize: 10,
+    marginVertical: 0,
+  },
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 12,
+    flexWrap: 'wrap',
+  },
+  ratingBox: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  ratingText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  voteCount: {
+    fontSize: 11,
+    marginTop: 2,
+  },
+  yearChip: {
+    height: 28,
+  },
+  genreContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  genreChip: {
+    height: 28,
+  },
+  genreChipText: {
+    fontSize: 12,
+  },
+  section: {
+    marginVertical: 8,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
   },
   synopsis: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 15,
+    lineHeight: 22,
     textAlign: 'justify',
-  },
-  infoContainer: {
-    marginTop: 8,
   },
   infoRow: {
     flexDirection: 'row',
-    marginBottom: 8,
+    marginBottom: 10,
     alignItems: 'flex-start',
+  },
+  infoLabel: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    minWidth: 120,
   },
   infoText: {
     flex: 1,
-    fontSize: 15,
-    marginLeft: 8,
-  },
-  divider: {
-    marginVertical: 12,
-  },
-  info: {
-    fontSize: 15,
-    marginVertical: 4,
-    color: '#444',
+    fontSize: 14,
     lineHeight: 20,
   },
-  bold: {
-    fontWeight: 'bold',
-    color: '#111',
-  },
-  watchLinksContainer: {
-    marginTop: 16,
-    width: '100%',
+  providerText: {
+    fontSize: 14,
+    marginBottom: 12,
   },
   watchLinksGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
-    marginTop: 8,
   },
   watchLinkButton: {
     flex: 1,
     minWidth: 140,
-    marginVertical: 4,
     borderRadius: 8,
   },
-  watchLinksTitle: {
-    marginTop: 16,
-    marginBottom: 8,
+  watchLinkContent: {
+    height: 40,
+  },
+  divider: {
+    marginVertical: 16,
   },
   bottomBar: {
     position: 'absolute',
@@ -202,7 +450,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 6,
     borderTopWidth: 1,
-    backdropFilter: 'blur(10px)',
   },
   bottomBarButton: {
     borderRadius: 12,
