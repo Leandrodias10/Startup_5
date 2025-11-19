@@ -69,7 +69,7 @@ export default function LoginView() {
                 🎬
               </Text>
               <Text style={[styles.appName, { color: theme.colors.onBackground }]}>
-                Movie App
+                Filmoteca
               </Text>
               <Text style={[styles.subtitle, { color: theme.colors.onSurfaceVariant }]}>
                 Entre na sua conta
