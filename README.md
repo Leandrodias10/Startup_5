@@ -1,6 +1,16 @@
 # 🎬 Startup_5 — Catálogo de Filmes (React Native + Expo)
 
 O **Startup_5** é um aplicativo mobile desenvolvido em **React Native com Expo**, criado para auxiliar usuários a encontrarem informações sobre filmes, incluindo sinopse, elenco, e onde assistir online. O objetivo é ajudar quem está em dúvida sobre qual filme escolher, oferecendo um catálogo intuitivo e informativo.
+---
+##  Integrantes
+
+- Andre Luiz Alves da Silva Junior
+- Deniel Carlson de Oliveira Andrade
+- Juan Carlos Pereira Matto 
+- Leandro Dias Assunção
+- Lucas Soares Matarelli
+- Victor Hugo Leroy Sumita
+
 
 ---
 
@@ -37,9 +47,9 @@ Pessoas que procuram filmes para assistir e desejam acessar informações rapida
 |------------|-----|
 | React Native | Base do aplicativo mobile |
 | Expo | Ambiente de desenvolvimento |
-| TypeScript | Tipagem e maior segurança no código |
+| JavaScript | Tipagem e maior segurança no código |
 | Expo Router / Navigation | Navegação entre telas |
-| AsyncStorage ou API futura | Controle de dados do usuário / filmes |
+| TMDB/ API | Repositório de informações cinematográfica |
 
 ---
 
